@@ -21,7 +21,11 @@ const GetStarted = ({ navigation }) => {
           onPress={() => navigation.replace("MainApp")}
         />
         <Gap height={16} width={20}></Gap>
-        <Button title="Sign in" type="primary" />
+        <Button
+          title="Sign in"
+          type="primary"
+          onPress={() => navigation.replace("Login")}
+        />
       </View>
     </ImageBackground>
   );

@@ -14,6 +14,7 @@ import ChatItem from "./ChatItem";
 import HomeProfile from "./HomeProfile";
 import ChoiceDoctor from "./ChoiceDoctor";
 import GoodNews from "./GoodNews";
+import AlertNotif from "./Alert";
 
 export {
   Button,
@@ -32,4 +33,5 @@ export {
   HomeProfile,
   ChoiceDoctor,
   GoodNews,
+  AlertNotif,
 };
