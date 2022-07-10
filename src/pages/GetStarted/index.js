@@ -18,13 +18,13 @@ const GetStarted = ({ navigation }) => {
         <Button
           title="Get Started"
           type="secondary"
-          onPress={() => navigation.replace("MainApp")}
+          onPress={() => navigation.navigate("Register")}
         />
         <Gap height={16} width={20}></Gap>
         <Button
           title="Sign in"
           type="primary"
-          onPress={() => navigation.replace("Login")}
+          onPress={() => navigation.navigate("Login")}
         />
       </View>
     </ImageBackground>

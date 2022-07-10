@@ -1,9 +1,9 @@
-import { Image, StyleSheet, Text, View } from "react-native";
+import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import React from "react";
 import { IarrowBackBlack, IarrowBackWhite, IuserPic } from "../../assets";
 import Gap from "../Gap";
 
-const UserProfile = () => {
+const UserProfile = ({ onPress }) => {
   return (
     <View style={styles.container}>
       <View
@@ -13,7 +13,9 @@ const UserProfile = () => {
           alignItems: "center",
         }}
       >
-        <IarrowBackWhite></IarrowBackWhite>
+        <TouchableOpacity onPress={onPress}>
+          <IarrowBackWhite></IarrowBackWhite>
+        </TouchableOpacity>
         <View style={styles.content}>
           <Text style={styles.name}>Ramadhan Malinta</Text>
           <Text style={styles.type}>Dokter Gigi</Text>

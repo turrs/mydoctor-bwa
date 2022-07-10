@@ -1,11 +1,11 @@
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import React from "react";
 import { IarrowBackBlack } from "../../assets";
 import Gap from "../Gap";
 import DarkProfile from "./DarkProfile";
 import UserProfile from "./UserProfile";
 
-const Header = ({ title, type }) => {
+const Header = ({ title, type, onPress }) => {
   if (type === "dark-profile") {
     return <DarkProfile title={title}></DarkProfile>;
   }
@@ -14,7 +14,9 @@ const Header = ({ title, type }) => {
   }
   return (
     <View style={styles.container}>
-      <IarrowBackBlack></IarrowBackBlack>
+      <TouchableOpacity onPress={onPress}>
+        <IarrowBackBlack></IarrowBackBlack>
+      </TouchableOpacity>
       <Text style={styles.text}>{title}</Text>
       <Gap width={24}></Gap>
     </View>

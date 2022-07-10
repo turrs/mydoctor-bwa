@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { Sticky } from "..";
 import { colors } from "../../utils/colors";
 
-const Input = ({ name, type }) => {
+const Input = ({ name, type, onChangeText }) => {
   const [borderColors, setBorderColors] = useState(colors.borderColors);
 
   const onFocusForm = () => {
@@ -21,6 +21,7 @@ const Input = ({ name, type }) => {
           style={styles.textInput(borderColors)}
           onFocus={onFocusForm}
           onBlur={onBlurForm}
+          onChangeText={onChangeText}
           secureTextEntry={type ? true : false}
         />
       </View>
