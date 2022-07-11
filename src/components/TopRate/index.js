@@ -1,6 +1,7 @@
 import { Image, StyleSheet, Text, View } from "react-native";
 import React from "react";
 import { Idoctor, Istars, IuserPic } from "../../assets";
+import { colors } from "../../utils";
 
 const TopRate = () => {
   return (
@@ -39,7 +40,7 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     paddingLeft: 10,
     flexDirection: "row",
-    backgroundColor: "red",
+    backgroundColor: colors.white,
   },
   wrapperStars: {
     flexDirection: "row",

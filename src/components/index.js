@@ -15,6 +15,7 @@ import HomeProfile from "./HomeProfile";
 import ChoiceDoctor from "./ChoiceDoctor";
 import GoodNews from "./GoodNews";
 import AlertNotif from "./Alert";
+import Loading from "./Loading";
 
 export {
   Button,
@@ -34,4 +35,5 @@ export {
   ChoiceDoctor,
   GoodNews,
   AlertNotif,
+  Loading,
 };

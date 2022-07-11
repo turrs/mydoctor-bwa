@@ -30,7 +30,7 @@ const MainApp = (onPress) => {
       <Tab.Screen
         options={{ headerShown: false }}
         name="Doctor"
-        component={Doctor}
+        component={Homepage}
       />
       <Tab.Screen
         options={{ headerShown: false }}
@@ -102,6 +102,21 @@ const Router = () => {
       <Stack.Screen
         name="Homepage"
         component={Homepage}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="Message"
+        component={Message}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="Doctor"
+        component={Doctor}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="Hospital"
+        component={Hospital}
         options={{ headerShown: false }}
       />
     </Stack.Navigator>

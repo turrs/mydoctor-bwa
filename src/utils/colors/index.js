@@ -7,6 +7,7 @@ const mainColors = {
   brown3: "#7D8797",
   blue: "#0066CB",
   red: "#E06379",
+  blackOpacity: "rgba(52, 52, 52, 0.8)",
 };
 
 export const colors = {
@@ -16,4 +17,5 @@ export const colors = {
   tertiary: mainColors.blue,
   alert: mainColors.red,
   white: mainColors.white,
+  loading: mainColors.loading,
 };

@@ -2,8 +2,21 @@ import { ScrollView, StyleSheet, Text, View } from "react-native";
 import React from "react";
 import { ChoiceDoctor, GoodNews, HomeProfile } from "../../components";
 import TopRate from "../../components/TopRate";
-
+import { getAuth, onAuthStateChanged } from "firebase/auth";
 const Homepage = () => {
+  const auth = getAuth();
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      // User is signed in, see docs for a list of available properties
+      // https://firebase.google.com/docs/reference/js/firebase.User
+      const uid = user.uid;
+      console.log(user);
+      // ...
+    } else {
+      // User is signed out
+      // ...
+    }
+  });
   return (
     <View style={styles.page}>
       <HomeProfile />

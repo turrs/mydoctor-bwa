@@ -1,6 +1,5 @@
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import React from "react";
-
 import Gap from "../Gap";
 import { IarrowBackWhite } from "../../assets";
 
@@ -8,7 +7,7 @@ const DarkProfile = ({ title, onPress }) => {
   return (
     <View style={styles.container}>
       <TouchableOpacity onPress={onPress}>
-        <IarrowBackWhite></IarrowBackWhite>{" "}
+        <IarrowBackWhite></IarrowBackWhite>
       </TouchableOpacity>
       <Text style={styles.text}>{title}</Text>
       <Gap width={24}></Gap>

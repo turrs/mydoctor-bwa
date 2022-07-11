@@ -6,7 +6,7 @@ import { ListDoctor } from "../../components";
 const Doctor = () => {
   return (
     <View style={styles.content}>
-      <Header type="dark-profile" title=" Pilih Doctor"></Header>
+      <Header type="dark-profile" title="Pilih Doctor"></Header>
       <View style={styles.container}>
         <View style={styles.list}>
           <ScrollView>
