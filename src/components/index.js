@@ -16,7 +16,7 @@ import ChoiceDoctor from "./ChoiceDoctor";
 import GoodNews from "./GoodNews";
 import AlertNotif from "./Alert";
 import Loading from "./Loading";
-
+import disableButton from "./Button/disableButton";
 export {
   Button,
   Gap,
@@ -36,4 +36,5 @@ export {
   GoodNews,
   AlertNotif,
   Loading,
+  disableButton,
 };

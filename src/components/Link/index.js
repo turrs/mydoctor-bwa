@@ -1,20 +1,22 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import React from "react";
 
-const Link = ({text}) => {
+const Link = ({ text, onPress }) => {
   return (
     <View>
-      <Text style={styles.text}>{text}</Text>
+      <TouchableOpacity onPress={onPress}>
+        <Text style={styles.text}>{text}</Text>
+      </TouchableOpacity>
     </View>
-  )
-}
+  );
+};
 
-export default Link
+export default Link;
 
 const styles = StyleSheet.create({
-    text: {
-        fontSize:12,
-        color: "#7D8797",
-        textDecorationLine:"underline"
-    }
-})
+  text: {
+    fontSize: 12,
+    color: "#7D8797",
+    textDecorationLine: "underline",
+  },
+});

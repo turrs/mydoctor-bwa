@@ -12,12 +12,14 @@ import {
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { useForm } from "../../utils";
 import { showMessage } from "react-native-flash-message";
+
 const Login = ({ navigation }) => {
   const [loading, setLoading] = useState(false);
   const [form, setForm] = useForm({
     email: "",
     password: "",
   });
+
   const onSubmit = () => {
     console.log(form);
     setLoading(true);
@@ -44,6 +46,7 @@ const Login = ({ navigation }) => {
           message: errorMessage,
           type: "danger",
         });
+        setLoading(false);
       });
   };
   return (
@@ -78,7 +81,10 @@ const Login = ({ navigation }) => {
           <Button title="Sign In" type="secondary" onPress={onSubmit} />
           <Gap height={16} width={20}></Gap>
           <View style={{ alignItems: "center" }}>
-            <Link text="Create new account"></Link>
+            <Link
+              text="Create new account"
+              onPress={() => navigation.navigate("Register")}
+            ></Link>
           </View>
         </View>
       </View>

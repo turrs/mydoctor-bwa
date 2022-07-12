@@ -1,9 +1,14 @@
 import { View, Text, StyleSheet } from "react-native";
-import React from "react";
+import React, { useState } from "react";
 import { Button, Gap, Header, Link } from "../../components";
-import { IaddPhoto, IphotoNull } from "../../assets";
+import { IaddPhoto, IphotoNull, IcancelPhoto } from "../../assets";
+import { colors } from "../../utils";
 
-const UploadPhoto = () => {
+const UploadPhoto = ({ route }) => {
+  console.log("console", route);
+  const [hasPhoto, setHasPhoto] = useState(false);
+  const [photo, setPhoto] = useState(true);
+  console.log(setPhoto);
   return (
     <View style={styles.container}>
       <Header title="Daftar Akun" />
@@ -13,16 +18,24 @@ const UploadPhoto = () => {
           <View style={styles.Wrapper}>
             <IphotoNull style={styles.photo}></IphotoNull>
           </View>
-          <IaddPhoto
-            style={{ poisition: "absolute", bottom: 40, left: 40 }}
-          ></IaddPhoto>
-          <Text style={{ color: "#112340", fontSize: 24 }}>Fatur Rahman</Text>
+          {hasPhoto && (
+            <IcancelPhoto
+              style={{ poisition: "absolute", bottom: 40, left: 40 }}
+            ></IcancelPhoto>
+          )}
+          {!hasPhoto && (
+            <IaddPhoto
+              style={{ poisition: "absolute", bottom: 40, left: 40 }}
+            ></IaddPhoto>
+          )}
+
+          <Text style={{ color: "#112340", fontSize: 24 }}>Fatur Rsahman</Text>
           <Text style={{ color: "#7D8797", fontSize: 18 }}>
             Front End Developer
           </Text>
         </View>
         <Gap height={120}></Gap>
-        <Button title="Sign In" type="secondary" />
+        <Button title="Sign In" type="secondary" disable={!setPhoto} />
         <Gap height={30}></Gap>
         <View>
           <View style={{ alignItems: "center" }}>
@@ -53,7 +66,7 @@ const styles = StyleSheet.create({
     height: 130,
     border: 1,
     borderWidth: 1,
-    color: "#E9E9E9",
+    borderColor: colors.borderColors,
     borderRadius: 190 / 2,
   },
   photo: {

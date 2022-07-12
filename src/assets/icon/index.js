@@ -13,6 +13,7 @@ import Iuser_account from "./account_circle_24px.svg";
 import Isend from "./send_24px.svg";
 import IdoctorUmum from "./icon_dokter_umum.svg";
 import Istars from "./star_rate_18px.svg";
+import IcancelPhoto from "./btn-cancel-photo.svg";
 export {
   IarrowBackBlack,
   IaddPhoto,
@@ -29,4 +30,5 @@ export {
   Isend,
   IdoctorUmum,
   Istars,
+  IcancelPhoto,
 };

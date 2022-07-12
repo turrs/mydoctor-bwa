@@ -1,11 +1,24 @@
 import { StyleSheet, Text, View } from "react-native";
 import React from "react";
 import { Avatar, FieldUser, Header } from "../../components";
-
-const UserProfile = () => {
+import { getAuth, signOut } from "firebase/auth";
+const UserProfile = ({ navigation }) => {
+  const logout = () => {
+    const auth = getAuth();
+    signOut(auth)
+      .then(() => {
+        // Sign-out successful.
+        console.log("berhasil keluar");
+        navigation.replace("Login");
+      })
+      .catch((error) => {
+        // An error happened.
+        console.log("gk bisa keluar");
+      });
+  };
   return (
     <View style={styles.page}>
-      <Header title="User Profile"> </Header>
+      <Header title="User Profile" onPress={() => navigation.goBack()}></Header>
       <View>
         <Avatar></Avatar>
         <View style={styles.identity}>
@@ -17,7 +30,7 @@ const UserProfile = () => {
         <FieldUser></FieldUser>
         <FieldUser></FieldUser>
         <FieldUser></FieldUser>
-        <FieldUser></FieldUser>
+        <FieldUser onPress={logout}></FieldUser>
       </View>
     </View>
   );

@@ -3,7 +3,7 @@ import React from "react";
 import { ChoiceDoctor, GoodNews, HomeProfile } from "../../components";
 import TopRate from "../../components/TopRate";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
-const Homepage = () => {
+const Homepage = ({ navigation }) => {
   const auth = getAuth();
   onAuthStateChanged(auth, (user) => {
     if (user) {
@@ -19,7 +19,7 @@ const Homepage = () => {
   });
   return (
     <View style={styles.page}>
-      <HomeProfile />
+      <HomeProfile onPress={() => navigation.navigate("UserProfile")} />
       <View>
         <Text style={styles.text}>Mau konsultasi dengan siapa hari ini ?</Text>
         <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>

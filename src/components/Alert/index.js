@@ -2,10 +2,10 @@ import { StyleSheet, Text, View } from "react-native";
 import React from "react";
 import { colors } from "../../utils/colors";
 
-const Alert = () => {
+const Alert = ({alert}) => {
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>Alert</Text>
+      <Text style={styles.text}>{alert}</Text>
     </View>
   );
 };

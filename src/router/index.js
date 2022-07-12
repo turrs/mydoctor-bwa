@@ -48,7 +48,7 @@ const MainApp = (onPress) => {
 
 const Router = () => {
   return (
-    <Stack.Navigator initialRouteName="Splash">
+    <Stack.Navigator initialRouteName="UploadPhoto">
       <Stack.Screen
         name="DoctorProfile"
         component={DoctorProfile}

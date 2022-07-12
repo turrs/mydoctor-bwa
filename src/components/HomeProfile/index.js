@@ -1,15 +1,35 @@
-import { Image, StyleSheet, Text, View } from "react-native";
+import {
+  Image,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+  props,
+} from "react-native";
 import React from "react";
 import { IuserPic } from "../../assets";
+import { getAuth } from "firebase/auth";
+const HomeProfile = ({ navigation, onPress }) => {
+  const auth = getAuth();
+  const user = auth.currentUser;
 
-const HomeProfile = () => {
+  if (user) {
+    // User is signed in, see docs for a list of available properties
+    // https://firebase.google.com/docs/reference/js/firebase.User
+    // ...
+    console.log(user);
+  } else {
+    // No user is signed in.
+  }
   return (
-    <View style={styles.header}>
-      <Image source={IuserPic} style={styles.image}></Image>
-      <View style={styles.headerWrapper}>
-        <Text style={styles.name}>Shayna Melinda</Text>
-        <Text style={styles.job}>Product Designer</Text>
-      </View>
+    <View>
+      <TouchableOpacity style={styles.header} onPress={onPress}>
+        <Image source={IuserPic} style={styles.image}></Image>
+        <View style={styles.headerWrapper}>
+          <Text style={styles.name}>Shayna Melinda</Text>
+          <Text style={styles.job}>Product Designer</Text>
+        </View>
+      </TouchableOpacity>
     </View>
   );
 };

@@ -2,7 +2,7 @@ import { StyleSheet, Text, View } from "react-native";
 import React, { useState } from "react";
 import Header from "../../components/Header";
 import { Button, Gap, Input, Loading } from "../../components";
-import { useForm } from "../../utils";
+import { storeData, useForm } from "../../utils";
 import { Fire } from "../../config";
 import { showMessage, hideMessage } from "react-native-flash-message";
 import { getDatabase, ref, set } from "firebase/database";
@@ -16,27 +16,29 @@ const Register = ({ navigation }) => {
 
   const onContinue = () => {
     console.log(form);
-
     setLoading(true);
     Fire.auth()
       .createUserWithEmailAndPassword(form.email, form.password)
       .then((userCredential) => {
         // Signed in
-        const user = userCredential.user;
-        console.log(user);
-        console.log("success bro : ", user);
-        const db = getDatabase();
-        set(ref(db, "users/" + user.uid + "/"), {
-          username: form.fullName,
-          email: form.email,
-          profession: form.profession,
-        });
-        setLoading(false);
+
         setForm("reset");
-        showMessage({
-          message: user,
-          type: "info",
+        const data = {
+          fullName: form.fullName,
+          profession: form.profession,
+          email: form.email,
+          uid: userCredential.user.uid,
+        };
+        console.log(data);
+        const db = getDatabase();
+        set(ref(db, "users/" + data.uid), {
+          fullName: data.fullName,
+          email: data.email,
+          profession: data.profession,
+          uid: data.uid,
         });
+        storeData("user", data);
+        navigation.navigate("UploadPhoto");
       })
       .catch((error) => {
         const errorCode = error.code;

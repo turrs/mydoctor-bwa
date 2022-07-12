@@ -1,16 +1,18 @@
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import React from "react";
 import { IactiveMessage, Iuser_account } from "../../assets";
 
-const FieldUser = () => {
+const FieldUser = ({ onPress }) => {
   return (
-    <View style={styles.container}>
-      <Iuser_account></Iuser_account>
-      <View style={styles.content}>
-        <Text style={styles.action}>Edit Profile</Text>
-        <Text style={styles.field}>Last updated yesterday</Text>
-      </View>
-      <IactiveMessage></IactiveMessage>
+    <View>
+      <TouchableOpacity onPress={onPress} style={styles.container}>
+        <Iuser_account></Iuser_account>
+        <View style={styles.content}>
+          <Text style={styles.action}>Edit Profile</Text>
+          <Text style={styles.field}>Last updated yesterday</Text>
+        </View>
+        <IactiveMessage></IactiveMessage>
+      </TouchableOpacity>
     </View>
   );
 };
