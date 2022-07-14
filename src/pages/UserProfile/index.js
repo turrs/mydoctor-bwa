@@ -1,8 +1,13 @@
 import { StyleSheet, Text, View } from "react-native";
-import React from "react";
+import React, { useEffect } from "react";
 import { Avatar, FieldUser, Header } from "../../components";
 import { getAuth, signOut } from "firebase/auth";
-const UserProfile = ({ navigation }) => {
+import GetData from "../../config/GetData";
+import { NavigationHelpersContext } from "@react-navigation/native";
+import Link from "../../components";
+const UserProfile = ({ navigation, dataProfile }) => {
+  console.log(GetData("JNHVC2iSvYSGrBCvXbxCWSsUe1B3"));
+
   const logout = () => {
     const auth = getAuth();
     signOut(auth)
@@ -22,8 +27,8 @@ const UserProfile = ({ navigation }) => {
       <View>
         <Avatar></Avatar>
         <View style={styles.identity}>
-          <Text style={styles.name}> Nairobi Putri Hayza</Text>
-          <Text style={styles.type}> Dokter Anak</Text>
+          <Text style={styles.name}> w</Text>
+          <Text style={styles.type}> i</Text>
         </View>
       </View>
       <View style={styles.container}>

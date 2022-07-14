@@ -4,6 +4,7 @@ import Header from "../../components/Header";
 import { ListDoctor } from "../../components";
 
 const Doctor = () => {
+  console.log("cek di doctor", route);
   return (
     <View style={styles.content}>
       <Header type="dark-profile" title="Pilih Doctor"></Header>

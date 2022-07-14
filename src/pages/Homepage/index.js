@@ -1,25 +1,45 @@
 import { ScrollView, StyleSheet, Text, View } from "react-native";
-import React from "react";
-import { ChoiceDoctor, GoodNews, HomeProfile } from "../../components";
+import React, { useEffect, useState } from "react";
+import { ChoiceDoctor, GoodNews, HomeProfile, Loading } from "../../components";
 import TopRate from "../../components/TopRate";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { useDispatch } from "react-redux";
+import { getDatabase, ref, child, get } from "firebase/database";
+import GetData from "../../config/GetData";
+
 const Homepage = ({ navigation }) => {
-  const auth = getAuth();
-  onAuthStateChanged(auth, (user) => {
-    if (user) {
-      // User is signed in, see docs for a list of available properties
-      // https://firebase.google.com/docs/reference/js/firebase.User
-      const uid = user.uid;
-      console.log(user);
-      // ...
-    } else {
-      // User is signed out
-      // ...
-    }
+  const [loading, setLoading] = useState(false);
+  const [dataProfile, setDataProfile] = useState({
+    fullName: "",
+    profession: "",
+    email: "",
   });
+
+  useEffect(() => {
+    const auth = getAuth();
+    setLoading(true);
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        console.log("userr", user);
+        data = GetData(user.uid);
+        console.log("waowieaoiwe", data);
+        setDataProfile({
+          fullName: data.fullName,
+          email: data.email,
+          profession: data.profession,
+        });
+      } else {
+        navigation.replace("Login");
+      }
+    });
+  }, []);
+
   return (
     <View style={styles.page}>
-      <HomeProfile onPress={() => navigation.navigate("UserProfile")} />
+      <HomeProfile
+        onPress={() => navigation.navigate("UserProfile")}
+        dataProfile={dataProfile}
+      />
       <View>
         <Text style={styles.text}>Mau konsultasi dengan siapa hari ini ?</Text>
         <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
@@ -44,6 +64,7 @@ const Homepage = ({ navigation }) => {
         <GoodNews></GoodNews>
         <GoodNews></GoodNews>
       </View>
+      {loading && <Loading></Loading>}
     </View>
   );
 };

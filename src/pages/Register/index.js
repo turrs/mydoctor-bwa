@@ -15,7 +15,6 @@ const Register = ({ navigation }) => {
   });
 
   const onContinue = () => {
-    console.log(form);
     setLoading(true);
     Fire.auth()
       .createUserWithEmailAndPassword(form.email, form.password)
@@ -38,7 +37,7 @@ const Register = ({ navigation }) => {
           uid: data.uid,
         });
         storeData("user", data);
-        navigation.navigate("UploadPhoto");
+        navigation.navigate("UploadPhoto", data);
       })
       .catch((error) => {
         const errorCode = error.code;
@@ -75,8 +74,8 @@ const Register = ({ navigation }) => {
         ></Input>
         <Input
           name="Pekerjaan"
-          value={form.pekerjaan}
-          onChangeText={(value) => setForm("pekerjaan", value)}
+          value={form.profession}
+          onChangeText={(value) => setForm("profession", value)}
         ></Input>
         <Input
           name="Password"

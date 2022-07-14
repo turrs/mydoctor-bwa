@@ -9,7 +9,7 @@ import {
 import React from "react";
 import { IuserPic } from "../../assets";
 import { getAuth } from "firebase/auth";
-const HomeProfile = ({ navigation, onPress }) => {
+const HomeProfile = ({ navigation, onPress, dataProfile }) => {
   const auth = getAuth();
   const user = auth.currentUser;
 
@@ -26,8 +26,8 @@ const HomeProfile = ({ navigation, onPress }) => {
       <TouchableOpacity style={styles.header} onPress={onPress}>
         <Image source={IuserPic} style={styles.image}></Image>
         <View style={styles.headerWrapper}>
-          <Text style={styles.name}>Shayna Melinda</Text>
-          <Text style={styles.job}>Product Designer</Text>
+          <Text style={styles.name}>{dataProfile.fullName}</Text>
+          <Text style={styles.job}>{dataProfile.profession}</Text>
         </View>
       </TouchableOpacity>
     </View>

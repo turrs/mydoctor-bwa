@@ -4,15 +4,24 @@ import { ILSplash } from "./assets";
 import { NavigationContainer } from "@react-navigation/native";
 import Router from "./router";
 import FlashMessage from "react-native-flash-message";
-
-const App = () => {
+import { Provider, useSelector } from "react-redux";
+import store from "./redux/store";
+const MainApp = () => {
   return (
-    <NavigationContainer>
-      <Router />
+    <>
+      <NavigationContainer>
+        <Router />
+      </NavigationContainer>
       <FlashMessage position="top" />
-    </NavigationContainer>
+    </>
   );
 };
-
+const App = () => {
+  return (
+    <Provider store={store}>
+      <MainApp />
+    </Provider>
+  );
+};
 export default App;
 const styles = StyleSheet.create({});

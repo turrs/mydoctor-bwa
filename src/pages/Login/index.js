@@ -10,8 +10,10 @@ import {
   Loading,
 } from "../../components";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
-import { useForm } from "../../utils";
+import { storeData, useForm } from "../../utils";
 import { showMessage } from "react-native-flash-message";
+import { getDatabase, ref, child, get } from "firebase/database";
+import { Fire } from "../../config";
 
 const Login = ({ navigation }) => {
   const [loading, setLoading] = useState(false);
@@ -23,19 +25,18 @@ const Login = ({ navigation }) => {
   const onSubmit = () => {
     console.log(form);
     setLoading(true);
+    const dbRef = ref(getDatabase());
     const auth = getAuth();
+    const db = getDatabase();
     signInWithEmailAndPassword(auth, form.email, form.password)
       .then((userCredential) => {
         // Signed in
         const user = userCredential.user;
-        console.log("sukses nih login user : ", user);
+        navigation.replace("MainApp");
         showMessage({
           message: "sukses login",
           type: "info",
         });
-        setLoading(false);
-        navigation.replace("MainApp");
-
         // ...
       })
       .catch((error) => {
